@@ -4601,7 +4601,7 @@ main {
 }
 
 .readerCommentBox {
-  border-top: 1px solid #2a2a2f;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
   padding-top: 14px;
 }
 
@@ -4612,10 +4612,12 @@ main {
 }
 
 .readerCommentTools button {
+  border: 1px solid #3a3b42;
   border-radius: 8px;
   padding: 6px 12px;
-  color: #bfc0c6;
+  color: #e7e7ec;
   background: #202126;
+  box-shadow: none;
 }
 
 .readerCommentTools button:last-child {
@@ -4628,11 +4630,36 @@ main {
   gap: 8px;
 }
 
+.readerCommentInputRow input,
 .readerCommentBox input {
   width: 100%;
-  background: #17181b;
-  border-color: #313138;
+  height: 44px;
+  background: #17181d;
+  border: 1px solid #3a3b42;
   color: #f1f1f3;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.readerCommentInputRow input::placeholder,
+.readerCommentBox input::placeholder {
+  color: #8f96a3;
+}
+
+.readerCommentInputRow button {
+  min-width: 106px;
+  height: 44px;
+  border: 1px solid #3a3b42;
+  border-radius: 8px;
+  background: #202126;
+  color: #f1f1f3;
+  font-weight: 800;
+  box-shadow: none;
+}
+
+.readerCommentInputRow button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .replyNotice {
@@ -4640,10 +4667,10 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  background: #221f24;
-  border: 1px solid #3a3036;
+  background: #241519;
+  border: 1px solid #4a2228;
   border-radius: 10px;
-  color: #f1c4ca;
+  color: #ffb3ba;
   padding: 8px 10px;
   margin-bottom: 10px;
 }
@@ -4653,43 +4680,47 @@ main {
   height: 26px;
   padding: 0;
   border: none;
-  color: #f1c4ca;
+  color: #ffb3ba;
+  background: transparent;
 }
 
 .pageComments {
   display: grid;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 24px;
+  margin-top: 22px;
 }
 
 .pageComment {
-  background: #17181b;
-  border: 1px solid #303137;
-  border-radius: 12px;
-  padding: 10px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  color: #dfe3ea;
+  box-shadow: none;
 }
 
 .pageCommentReply {
-  border-left: 3px solid #ff555f;
+  padding-left: 14px;
+  border-left: 1px solid #4a4a50;
 }
 
 .pageCommentHeader {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
 }
 
 .pageCommentAvatar {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   padding: 0;
-  border-radius: 10px;
+  flex: 0 0 28px;
+  border-radius: 4px;
   overflow: hidden;
   display: grid;
   place-items: center;
-  background: #2a2b31;
-  border: 1px solid #3a3b42;
-  flex: 0 0 34px;
+  background: #2a2c33;
+  border: none;
 }
 
 .pageCommentAvatar::before {
@@ -4697,7 +4728,7 @@ main {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #ff555f;
+  background: #5f6570;
 }
 
 .pageCommentAvatar:has(img)::before {
@@ -4712,31 +4743,38 @@ main {
 
 .pageCommentMeta {
   min-width: 0;
+  display: grid;
+  gap: 2px;
 }
 
 .pageCommentAuthor {
+  width: fit-content;
   display: block;
+  margin: 0;
   padding: 0;
   border: none;
   background: transparent;
-  color: #f2f2f4;
-  font-weight: 800;
+  color: #e8e8ee;
+  font-size: 15px;
+  font-weight: 900;
   text-align: left;
+  box-shadow: none;
 }
 
 .pageCommentAuthor:hover {
   transform: none;
-  color: #ff6b73;
+  color: #ff4b55;
 }
 
 .pageCommentMeta span {
-  color: #86868c;
+  color: #8f96a3;
   font-size: 12px;
 }
 
 .pageComment p {
-  margin: 8px 0 0;
-  color: #dcdce2;
+  margin: 10px 0 0;
+  color: #dfe3ea;
+  font-size: 15px;
   line-height: 1.45;
   white-space: pre-wrap;
 }
@@ -4744,40 +4782,143 @@ main {
 .pageCommentActions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .pageCommentActions button {
-  padding: 4px 8px;
+  padding: 2px 0;
   border: none;
-  border-radius: 7px;
-  background: #222329;
-  color: #aeb0b8;
+  border-radius: 0;
+  background: transparent;
+  color: #ff4b55;
   font-size: 12px;
+  text-transform: lowercase;
+  box-shadow: none;
 }
 
 .pageCommentActions button:hover {
   transform: none;
-  color: #fff;
+  color: #ff6b73;
 }
 
 .pageCommentActions .deleteCommentButton {
-  color: #ff8b92;
+  color: #ff6b73;
 }
 
 .pageCommentActions span {
-  color: #777983;
+  color: #8f96a3;
   font-size: 12px;
 }
 
 .emptyPageComments {
   margin-top: 12px;
-  color: #8f9098;
-  border: 1px dashed #33343a;
+  color: #8f96a3;
+  border: 1px dashed #3a3b42;
   border-radius: 12px;
   padding: 12px;
+}
+
+/* Reader comments: light reader theme */
+.readerV2.readerTheme_light .readerCommentBox {
+  border-top: 1px solid #d9d9df;
+  color: #111827;
+}
+
+.readerV2.readerTheme_light .readerCommentTools button {
+  background: #ffffff;
+  border: 1px solid #d9d9df;
+  color: #22242a;
+}
+
+.readerV2.readerTheme_light .readerCommentTools button:last-child {
+  background: #f1f1f4;
+  border-color: #f1f1f4;
+  color: #22242a;
+}
+
+.readerV2.readerTheme_light .readerCommentInputRow input,
+.readerV2.readerTheme_light .readerCommentBox input {
+  background: #ffffff;
+  border: 1px solid #d9d9df;
+  color: #111827;
+}
+
+.readerV2.readerTheme_light .readerCommentInputRow input::placeholder,
+.readerV2.readerTheme_light .readerCommentBox input::placeholder {
+  color: #9ca3af;
+}
+
+.readerV2.readerTheme_light .readerCommentInputRow button {
+  background: #ffffff;
+  border: 1px solid #d9d9df;
+  color: #111827;
+}
+
+.readerV2.readerTheme_light .readerCommentInputRow button:disabled {
+  opacity: 1;
+  color: #c4c7cf;
+}
+
+.readerV2.readerTheme_light .replyNotice {
+  background: #fff5f5;
+  border: 1px solid #ffd4d4;
+  color: #c92835;
+}
+
+.readerV2.readerTheme_light .replyNotice button {
+  color: #c92835;
+}
+
+.readerV2.readerTheme_light .pageComment {
+  color: #111827;
+}
+
+.readerV2.readerTheme_light .pageCommentReply {
+  border-left: 2px solid #ef4444;
+}
+
+.readerV2.readerTheme_light .pageCommentAvatar {
+  background: #eef0f3;
+}
+
+.readerV2.readerTheme_light .pageCommentAvatar::before {
+  background: #9ca3af;
+}
+
+.readerV2.readerTheme_light .pageCommentAuthor {
+  color: #111827;
+}
+
+.readerV2.readerTheme_light .pageCommentAuthor:hover {
+  color: #ef4444;
+}
+
+.readerV2.readerTheme_light .pageCommentMeta span {
+  color: #8b95a1;
+}
+
+.readerV2.readerTheme_light .pageComment p {
+  color: #111827;
+}
+
+.readerV2.readerTheme_light .pageCommentActions button {
+  color: #ef4444;
+}
+
+.readerV2.readerTheme_light .pageCommentActions button:hover,
+.readerV2.readerTheme_light .pageCommentActions .deleteCommentButton {
+  color: #c92835;
+}
+
+.readerV2.readerTheme_light .pageCommentActions span {
+  color: #8b95a1;
+}
+
+.readerV2.readerTheme_light .emptyPageComments {
+  color: #8b95a1;
+  border-color: #d9d9df;
 }
 
 .readerDrawerOverlay {
